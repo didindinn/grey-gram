@@ -18,3 +18,11 @@ class Profile(models.Model):
     '''getting a specific profile results results'''
     def __str__(self):
         return self.profile.user
+    
+    
+    
+    
+#image
+
+class Image(models.Model):
+    
