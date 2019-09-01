@@ -23,7 +23,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    
+    path('', include('pics.urls')),
+
+    #url for registration
+    path('accounts/', include('ig-registration.backends.simple.urls')),
+
 ]
 
-.r-1dgebii {
-    background-color: rgb(224, 36, 94);
+
