@@ -19,3 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
+
+.r-1dgebii {
+    background-color: rgb(224, 36, 94);
