@@ -19,4 +19,8 @@ def index(request):
     all_users = Profile.objects.all()
     next = request.GET.get('next')
     if next: return redirect(next)
-    return render(request, 'display/home.html',  {"all_images": all_images}, {"all_users":all_users})
+    return render(request, 'ig-display/home.html',  {"all_images": all_images}, {"all_users":all_users})
+
+@login_required(login_url='/accounts/login/')
+def notification(request):
+    return render(request, 'ig-display/notification.html')
