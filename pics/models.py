@@ -39,3 +39,21 @@ class Image(models.Model):
     
     def __str__(self):
         return self.image_caption
+    
+#class comments for grey gram 
+
+class Comments (models.Model):
+    comment_post = models.CharField(max_length=150)
+    author = models.ForeignKey('Profile',related_name='commenter' , on_delete=models.CASCADE)
+    commented_image = models.ForeignKey('Image', on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    #method to see the comments and get a specific comment
+    
+    def __str__(self):
+        return self.author
+
+    
+    
+    
+    
+    
