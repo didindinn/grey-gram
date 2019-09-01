@@ -24,3 +24,9 @@ def index(request):
 @login_required(login_url='/accounts/login/')
 def notification(request):
     return render(request, 'ig-display/notification.html')
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    return render(request, 'ig-display/userprofile.html')
+def logout(request):
+    return render(request, 'ig-registration/logout.html')
