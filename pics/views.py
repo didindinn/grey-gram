@@ -29,10 +29,29 @@ def notification(request):
 def profile(request):
     return render(request, 'ig-display/userprofile.html')
 
-def login(request):
-    return render(request, 'registration/login.html')
+
 
 def logout(request):
     return render(request, 'ig-registration/logout.html')
+#after logging out you can view the login 
 
+def login(request):
+    return render(request, 'ig-registration/login.html')
 
+#the login page 
+
+@login_required(login_url='/accounts/login/')
+def upload(request):
+    current_user = request.user
+    p = Profile.objects.filter(id=current_user.id).first()
+    imageuploader_profile = Image.objects.filter(imageuploader_profile=p).all()
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.imageuploader_profile= p
+            post.save()
+            return redirect('/')
+    else:
+        form =PostForm
+    return render(request, 'ig-display/upload.html', {"form": form})
