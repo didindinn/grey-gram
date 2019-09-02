@@ -11,39 +11,66 @@ from . import models
 from annoying.decorators import ajax_request
 
 from django.core.mail import send_mail
+'''
+send mail enables sends confirmation mail using @gmail
+'''
 from django.contrib.auth.decorators import login_required
+'''
+The @login_required declarator limits access of view function to only 
+authenticated users
+'''
+#---------------------------------------------------------------------#
+'''End Of Import'''
+#---------------------------------------------------------------------#
 
+# VIEW FUNCTIONS HERE!
+
+
+
+#################################################################################################################################################################################
+#HOME PAGE VIEW FUNCTION
+#################################################################################################################################################################################
+
+#Home page view function
 @login_required(login_url='/accounts/login/')
 def index(request):
     all_images = Image.objects.all()
     all_users = Profile.objects.all()
     next = request.GET.get('next')
     if next: return redirect(next)
-    return render(request, 'ig-display/home.html',  {"all_images": all_images}, {"all_users":all_users})
+    return render(request, 'display/home.html',  {"all_images": all_images}, {"all_users":all_users})
+
+
 #Explore page view function
 @login_required(login_url='/accounts/login/')
 def explore(request):
-    return render(request, 'ig-display/explore.html')
+    return render(request, 'display/explore.html')
 
+
+#Notification page view function
 @login_required(login_url='/accounts/login/')
 def notification(request):
-    return render(request, 'ig-display/notification.html')
+    return render(request, 'display/notification.html')
 
+
+#Profile page view function
 @login_required(login_url='/accounts/login/')
 def profile(request):
-    return render(request, 'ig-display/userprofile.html')
+    return render(request, 'display/userprofile.html')
 
 
 
+#Log-Out page view function
 def logout(request):
-    return render(request, 'ig-registration/logout.html')
-#after logging out you can view the login 
+    return render(request, 'registration/logout.html')
 
+
+#Login page view function
 def login(request):
-    return render(request, 'ig-registration/login.html')
+    return render(request, 'registration/login.html')
+    
 
-#the login page 
-
+#Login page view function
 @login_required(login_url='/accounts/login/')
 def upload(request):
     current_user = request.user
@@ -58,4 +85,5 @@ def upload(request):
             return redirect('/')
     else:
         form =PostForm
-    return render(request, 'ig-display/upload.html', {"form": form})
+    return render(request, 'display/upload.html', {"form": form})
+#######################################################################################################################################
