@@ -17,7 +17,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     all_images = Image.objects.all()
     all_users = Profile.objects.all()
-    next = requestF.GET.get('next')
+    next = request.GET.get('next')
     if next: return redirect(next)
     return render(request, 'ig-display/home.html',  {"all_images": all_images}, {"all_users":all_users})
 #Explore page view function
