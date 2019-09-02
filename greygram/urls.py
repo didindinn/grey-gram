@@ -15,18 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 
-from django.conf.urls import url, include
+from django.urls import path, include
 
 from pics import views
 
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^admin/$', admin.site.urls),
-    url('',include('pics.urls')),
-    url('^accounts/',include ('registration.backends.simple.urls')),
-    url('^logout/', views.logout, {"next_page": '/'}),
-    url('^tinymce/', include('tinymce.urls')),
+    path('admin/', admin.site.urls),
+    path('',include('pics.urls')),
+    path('accounts/',include ('registration.backends.simple.urls')),
+    
 
 ]
 

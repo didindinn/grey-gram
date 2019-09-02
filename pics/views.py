@@ -17,9 +17,13 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     all_images = Image.objects.all()
     all_users = Profile.objects.all()
-    next = request.GET.get('next')
+    next = requestF.GET.get('next')
     if next: return redirect(next)
     return render(request, 'ig-display/home.html',  {"all_images": all_images}, {"all_users":all_users})
+#Explore page view function
+@login_required(login_url='/accounts/login/')
+def explore(request):
+    return render(request, 'ig-display/explore.html')
 
 @login_required(login_url='/accounts/login/')
 def notification(request):
