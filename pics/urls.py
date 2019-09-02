@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 #now let us create the juicy paths 
 
 urlpatterns=[
-    url(r'',views.index, name='index'),
+    url(r'^$',views.index, name='index'),
     #url(r'explore',views.explore,name ='explore'),
     url(r'notification',views.notification,name ='notification'),
     url(r'profile',views.profile,name ='profile'),
