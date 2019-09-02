@@ -1,8 +1,7 @@
-from django.conf.urls import url
-from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from django.shortcuts import render, redirect
+from django.conf.urls import url
+from .import views
 
 #now let us create the juicy paths 
 
