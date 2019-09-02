@@ -4,7 +4,7 @@ from django.contrib import admin
 
 from django.urls import include, path
 
-from gram import views
+from pics import views
 
 from django.conf.urls.static import static
 
@@ -18,7 +18,7 @@ as done below this is to avoid filling up all our urls in this page'''
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('', include('gram.urls')),
+    path('', include('pics.urls')),
 
     #url for registration
     path('accounts/', include('registration.backends.simple.urls')),

@@ -1,4 +1,4 @@
-{% extends 'display/base.html' %} 
+{% extends 'ig-display/base.html' %} 
 {% load static%} 
 {% load bootstrap3 %} 
 {% block content %} 
@@ -37,7 +37,7 @@
                          {% if all_users %} {% for user in all_users %}
                             <strong> "{{user.user}}" </strong>
                         {% endfor %}{% else %}
-                        <strong>grammer</strong>
+                        <strong>GreyGrammer</strong>
 
                         {% endif %}
                         </p>
@@ -61,12 +61,12 @@
                                         
                                     </p>
                                 </span>
-                                <p><strong>5 likes</strong> </p>
+                                <p><strong>mafiosa and 500 liked</strong> </p>
                         <!-- Caption Section -->
                         {% if all_users %} {% for user in all_users %}
                         <strong> "{{user.user}}" </strong>
                         {% endfor %}{% else %}
-                        <p><strong>grammer</strong> {{collins.image_caption}}</p>
+                        <p><strong>GreyGrammer</strong> {{collins.image_caption}}</p>
                         
                         {% endif %} 
 

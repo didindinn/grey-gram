@@ -12,24 +12,15 @@ from annoying.decorators import ajax_request
 
 from django.core.mail import send_mail
 '''
-send mail enables sends confirmation mail using @gmail
+send mail enables sends confirmation mail
 '''
 from django.contrib.auth.decorators import login_required
 '''
 The @login_required declarator limits access of view function to only 
 authenticated users
 '''
-#---------------------------------------------------------------------#
-'''End Of Import'''
-#---------------------------------------------------------------------#
-
-# VIEW FUNCTIONS HERE!
 
 
-
-#################################################################################################################################################################################
-#HOME PAGE VIEW FUNCTION
-#################################################################################################################################################################################
 
 #Home page view function
 @login_required(login_url='/accounts/login/')
@@ -38,25 +29,25 @@ def index(request):
     all_users = Profile.objects.all()
     next = request.GET.get('next')
     if next: return redirect(next)
-    return render(request, 'display/home.html',  {"all_images": all_images}, {"all_users":all_users})
+    return render(request, 'ig-display/home.html',  {"all_images": all_images}, {"all_users":all_users})
 
 
 #Explore page view function
 @login_required(login_url='/accounts/login/')
 def explore(request):
-    return render(request, 'display/explore.html')
+    return render(request, 'ig-display/explore.html')
 
 
 #Notification page view function
 @login_required(login_url='/accounts/login/')
 def notification(request):
-    return render(request, 'display/notification.html')
+    return render(request, 'ig-display/notification.html')
 
 
 #Profile page view function
 @login_required(login_url='/accounts/login/')
 def profile(request):
-    return render(request, 'display/userprofile.html')
+    return render(request, 'ig-display/userprofile.html')
 
 
 
@@ -85,5 +76,5 @@ def upload(request):
             return redirect('/')
     else:
         form =PostForm
-    return render(request, 'display/upload.html', {"form": form})
+    return render(request, 'ig-display/upload.html', {"form": form})
 #######################################################################################################################################
